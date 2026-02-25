@@ -1,0 +1,8 @@
+.light {
+  background-color: var(--color-surface-light);
+  color: var(--color-ink-dark);
+}
+.dark {
+  background-color: var(--color-surface-dark);
+  color: var(--color-ink-light);
+}

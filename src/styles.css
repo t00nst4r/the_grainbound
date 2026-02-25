@@ -1,3 +1,168 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-display: "Cinzel", serif;
+  --font-hand: "Almendra", serif;
+  --font-body: "EB Garamond", serif;
+
+  /* Colors - Functional Naming */
+  --color-brand-primary: #a81a1a;
+  --color-brand-primary-hover: #821414;
+
+  --color-surface-light: #f5f5f4;
+  --color-surface-light-alt: #e7e5e4; /* Hover state for light cards */
+
+  --color-surface-dark: #1a1814;
+  --color-surface-dark-alt: #0f0e0c;  /* Hover state for dark cards */
+
+  --color-ink-dark: #1c1917;
+  --color-ink-light: #e7e5e4;
+  --color-ink-muted: #78716c;
+
+  --color-status-success: #2d5a27; /* Forest Green */
+  --color-status-warning: #b35d1e; /* Ochre/Rust */
+  --color-status-info: #1e4b6d;    /* Deep Sea Blue */
+
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.563rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --text-4xl: 3.052rem;
+
+  /* Spacing Scale - Ensuring "Rhythm" */
+  --spacing-section-y: clamp(4rem, 10vh, 8rem); /* Fluid vertical padding */
+  --spacing-vellum-x: clamp(1.5rem, 5vw, 3rem); /* Space inside the paper */
+
+  /* Type Scale - Fluid Typography */
+  --text-display-lg: clamp(2.25rem, 8vw, 4.5rem);
+  --text-display-md: clamp(1.875rem, 5vw, 3rem);
+  --text-body: 1.125rem;
+
+  /* The maximum width a line of text should ever be for readability (~75 characters) */
+  --width-content-max: 65ch;
+
+  /* The maximum width of a full section container */
+  --width-container-max: 80rem;
+
+  /* Consistent "Safe Zone" on the sides of the screen */
+  --gutter-mobile: 1.5rem;
+  --gutter-desktop: 3rem;
+
+  /* The "Feel" of the site */
+  --transition-standard: 200ms ease-in-out;
+  --radius-seal: 0.25rem; /* Subtle, sharp corners for a stone-cut look */
+
+  /* Interactive elevation */
+  --shadow-resting: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.15);
+
+  --header-height: 5rem;
+  --header-blur: 12px;
+  --header-bg-opacity: 0.8;
+
+  /* Surface Opacities for Depth */
+  --surface-overlay-light: rgba(255, 255, 255, 0.5);
+  --surface-overlay-dark: rgba(0, 0, 0, 0.2);
+
+  /* Precision Borders */
+  --border-muted: color-mix(in srgb, var(--color-ink-muted), transparent 80%);
+
+  --color-input-bg: var(--color-surface-light);
+  --color-input-border: color-mix(in srgb, var(--color-ink-muted), transparent 70%);
+  --color-input-focus: var(--color-brand-primary);
+  --shadow-input-focus: 0 0 0 4px color-mix(in srgb, var(--color-brand-primary), transparent 90%);
+}
+
+@layer base {
+  body {
+    @apply bg-surface-light text-ink-dark antialiased selection:bg-brand-primary/20;
+    font-family: var(--font-body), serif;
+    font-size: var(--text-body);
+    line-height: 1.6;
+  }
+
+  /* Force smooth scrolling for your #features anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Ensure images don't cause layout shifts */
+  img {
+    @apply h-auto max-w-full block;
+  }
+}
+
+@layer components {
+  /* Define the "Atom" as a plain CSS class */
+  .btn-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-display), serif;
+    transition: all 200ms ease-in-out;
+    border: none;
+  }
+
+  /* Now you can safely @apply it here because it is in the same file */
+  .btn-seal {
+    background-color: var(--color-brand-primary);
+    color: white;
+  }
+
+  /* We add the interactive states explicitly for precision */
+  .btn-seal:hover {
+    background-color: var(--color-brand-primary-hover);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px); /* That -translate-y-0.5 feel */
+  }
+
+  .btn-seal:active {
+    transform: translateY(0);
+  }
+
+  .btn-sm { padding: 0.5rem 1rem; font-size: 0.75rem; }
+  .btn-md { padding: 0.75rem 2rem; font-size: 0.875rem; }
+  .btn-lg { padding: 1rem 3rem; font-size: 1rem; }
+
+
+
+
+  /* The "Molecule" definition */
+  .gb-card {
+    @apply p-6 md:p-8 rounded-sm transition-all duration-300;
+    border: 1px solid var(--border-muted);
+    display: block; /* Ensure it behaves like a container */
+  }
+
+  /* Variant: Glass (Light mode) */
+  .gb-card-glass {
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    color: var(--color-ink-dark);
+  }
+
+  /* Variant: Solid (Neutral) */
+  .gb-card-solid {
+    background-color: var(--color-surface-light-alt);
+    color: var(--color-ink-dark);
+  }
+
+  /* Variant: Dark (High Contrast) */
+  .gb-card-dark {
+    background-color: var(--color-surface-dark);
+    color: var(--color-ink-light);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Hover Lift - Applied globally to cards */
+  .gb-card:hover {
+    border-color: var(--color-brand-primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+}

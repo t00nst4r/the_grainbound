@@ -3,13 +3,18 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@models/*": ["../models/*"]
+    },
     "outDir": "./out-tsc/app",
     "types": [
       "node"
     ]
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "../models/**/*.ts"
   ],
   "exclude": [
     "src/**/*.spec.ts"

@@ -1,0 +1,38 @@
+<header class="sticky top-0 z-50 w-full h-(--header-height) bg-surface-dark/90 backdrop-blur-md border-b border-white/10 shadow-lg">
+  <nav class="container mx-auto h-full px-(--gutter-mobile) md:px-(--gutter-desktop) flex items-center justify-between">
+    <a routerLink="/" class="flex items-center gap-4 group">
+      <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-ink-muted/20 group-hover:border-brand-primary transition-colors">
+        <img src="images/tony.webp" alt="Logo" class="object-cover w-full h-full">
+      </div>
+      <span class="font-display text-xl tracking-tighter text-(--color-ink-light) uppercase">
+            The <span class="text-brand-primary">Grainbound</span>
+      </span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a routerLink="/about" class="nav-link" routerLinkActive="active">About</a>
+      <a routerLink="/resources" class="nav-link" routerLinkActive="active">Resources</a>
+      <a routerLink="/signup" gbBtnSeal size="sm">
+        Join the System
+      </a>
+    </div>
+
+    <button (click)="toggleMenu()" class="md:hidden text-(--color-ink-light) p-2">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        @if (!isMenuOpen()) {
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        } @else {
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        }
+      </svg>
+    </button>
+  </nav>
+
+  @if (isMenuOpen()) {
+    <div class="absolute top-(--header-height) left-0 w-full bg-surface-dark
+                    border-b border-ink-muted/20 p-6 space-y-4 md:hidden animate-in fade-in slide-in-from-top-4">
+      <a routerLink="/about" (click)="isMenuOpen.set(false)" class="block text-xl font-hand text-(--color-ink-light)">About</a>
+      <a routerLink="/resources" (click)="isMenuOpen.set(false)" class="block text-xl font-hand text-(--color-ink-light)">Resources</a>
+    </div>
+  }
+</header>
