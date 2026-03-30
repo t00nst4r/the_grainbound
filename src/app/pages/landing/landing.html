@@ -1,1 +1,257 @@
-<p>landing works!</p>
+<!--<section class="relative min-h-screen flex items-center justify-center p-(&#45;&#45;gutter-mobile) md:p-(&#45;&#45;gutter-desktop)">-->
+<!--  <div class="absolute inset-0 z-0">-->
+<!--    <img src="images/hero-bg.webp" alt="Fantasy World Map" class="w-full h-full object-cover">-->
+<!--    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-surface-dark/20 to-(&#45;&#45;color-surface-dark)"></div>-->
+<!--  </div>-->
+
+<!--  <div class="relative z-10 w-full max-w-4xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-(&#45;&#45;radius-seal) p-8 md:p-16 text-center shadow-2xl">-->
+<!--    <h1 gbText="h1" class="mb-6 !text-white drop-shadow-md">-->
+<!--      Build Fantasy Worlds <br> <span gbAccent>That Breathe</span>-->
+<!--    </h1>-->
+
+<!--    <p gbText="body" class="text-xl md:text-2xl mb-10 text-white/90 max-w-2xl mx-auto leading-relaxed">-->
+<!--      Master the <strong>logic of causality</strong> to create cultures and environments that feel ancient, lived-in, and inevitable.-->
+<!--    </p>-->
+
+<!--    <div class="flex flex-col sm:flex-row gap-6 justify-center">-->
+<!--      <a gbBtnSeal size="lg" href="#vault" class="shadow-lg">Get Free Resources</a>-->
+<!--      <a gbBtnLeather href="https://youtube.com/@TheGrainbound">Watch Latest Video</a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<!--<gb-section id="vault" variant="dark">-->
+<!--  <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">-->
+<!--    <div class="max-w-xl">-->
+<!--      <h2 gbText="h2" class="mb-2 uppercase tracking-tighter">The Worldbuilder's <span gbAccent>Vault</span></h2>-->
+<!--      <p gbText="body" class="opacity-60">Tools for the architect, not the tourist. Download the frameworks that power the Grainbound system.</p>-->
+<!--    </div>-->
+<!--    <div gbText="note" class="hidden md:block text-brand-primary border-b border-brand-primary pb-1">-->
+<!--      Showing 4 Artifacts-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="grid grid-cols-1 md:grid-cols-12 gap-4">-->
+
+<!--    <gb-card variant="glass" class="md:col-span-8 p-0 overflow-hidden group border-r-0 border-t-0 border-b-0 border-l-4 border-l-brand-primary">-->
+<!--      <div class="flex flex-col lg:flex-row h-full">-->
+<!--        <div class="p-8 flex flex-col justify-center">-->
+<!--          <span gbBadge class="mb-4">Framework 01</span>-->
+<!--          <h3 gbText="h2" class="!text-2xl mb-4">The WOAC Cycle</h3>-->
+<!--          <p gbText="body" class="text-sm opacity-80 mb-6">Learn how <strong>Weather, Origin, Architecture, and Conflict</strong> interact to build logical internal history for any setting.</p>-->
+<!--          <button gbBtnSeal size="sm" class="self-start">Download PDF</button>-->
+<!--        </div>-->
+<!--        <div class="bg-white/5 w-full lg:w-1/2 flex items-center justify-center border-l border-white/10 group-hover:bg-brand-primary/10 transition-colors">-->
+<!--          <span class="text-white/20 font-display text-8xl">WOAC</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </gb-card>-->
+
+<!--    <gb-card variant="dark" class="md:col-span-4 p-8 flex flex-col justify-between border border-white/5">-->
+<!--      <div>-->
+<!--        <h3 gbText="h3" gbAccent class="mb-2">Culture Engine</h3>-->
+<!--        <p gbText="note" class="opacity-70 leading-relaxed">The starter template for building societies that aren't just "flavor text." Built for causality.</p>-->
+<!--      </div>-->
+<!--      <a href="#" gbText="nav" class="mt-8 text-white hover:text-brand-primary flex items-center gap-2">-->
+<!--        Access Template <span class="text-xs">→</span>-->
+<!--      </a>-->
+<!--    </gb-card>-->
+
+<!--    <gb-card variant="solid" class="md:col-span-7 p-8 bg-surface-dark-alt/30 border border-white/5 flex flex-col md:flex-row gap-8 items-center">-->
+<!--      <div class="flex-1">-->
+<!--        <h3 gbText="h3">Join the Collective</h3>-->
+<!--        <p gbText="note">Weekly worldbuilding breakdowns delivered to your archive.</p>-->
+<!--      </div>-->
+<!--      <div class="flex gap-2 w-full md:w-auto">-->
+<!--        <input gbInput type="email" placeholder="Your email..." class="flex-1 min-w-[200px]">-->
+<!--        <button gbBtnSeal class="whitespace-nowrap">Join</button>-->
+<!--      </div>-->
+<!--    </gb-card>-->
+
+<!--    <gb-card variant="glass" class="md:col-span-5 p-8 border border-white/5 group hover:border-brand-primary/50 transition-all">-->
+<!--      <div class="flex justify-between items-start">-->
+<!--        <div>-->
+<!--          <h3 gbText="h3" class="text-sm uppercase tracking-widest mb-2">5 Forces Guide</h3>-->
+<!--          <p gbText="note" class="opacity-60">Environmental pressures and how they shape bone-deep lore.</p>-->
+<!--        </div>-->
+<!--        <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-surface-dark transition-all">-->
+<!--          ↓-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </gb-card>-->
+
+<!--  </div>-->
+<!--</gb-section>-->
+
+<!--<gb-section id="resources" variant="light">-->
+<!--  <div class="text-center mb-12">-->
+<!--    <h2 gbText="h2">Start Building Better Worlds Today</h2>-->
+<!--    <p gbText="body">Join <span gbAccent>5,000+</span> worldbuilders and get instant access to our toolkit.</p>-->
+<!--  </div>-->
+
+<!--  <div class="grid lg:grid-cols-3 gap-8">-->
+<!--    <div class="lg:col-span-2 grid md:grid-cols-2 gap-4">-->
+<!--      <gb-card variant="solid" [hoverable]="true" class="p-6">-->
+<!--        <h3 gbText="h3">WOAC Quick Ref</h3>-->
+<!--        <p gbText="note">The core cycle for logical world evolution.</p>-->
+<!--      </gb-card>-->
+<!--      <gb-card variant="solid" class="p-6">-->
+<!--        <h3 gbText="h3">Culture Engine</h3>-->
+<!--        <p gbText="note">Starter template for deep societal design.</p>-->
+<!--      </gb-card>-->
+<!--      <gb-card variant="solid" class="p-6">-->
+<!--        <h3 gbText="h3">5 Forces Framework</h3>-->
+<!--        <p gbText="note">The guide to environmental worldbuilding.</p>-->
+<!--      </gb-card>-->
+<!--      <gb-card variant="solid" class="p-6">-->
+<!--        <h3 gbText="h3">Worksheets</h3>-->
+<!--        <p gbText="note">Step-by-step PDF building guides.</p>-->
+<!--      </gb-card>-->
+<!--      <gb-card-->
+<!--        variant="glass"-->
+<!--        [price]="49.99"-->
+<!--        [tag]="{ text: 'Premium', type: 'info' }"-->
+<!--        [action]="{ text: 'Buy Now', link: '#' }">-->
+<!--        <h3 gbText="h3">The Archive</h3>-->
+<!--        <p gbText="body">Complete access to historical generation logs.</p>-->
+<!--      </gb-card>-->
+
+<!--      <gb-card-->
+<!--        variant="dark"-->
+<!--        [price]="0"-->
+<!--        [action]="{ text: 'Download', link: '#' }">-->
+<!--        <h3 gbText="h3">Starter Kit</h3>-->
+<!--        <p gbText="body">Essential tools for early worldbuilding.</p>-->
+<!--      </gb-card>-->
+<!--    </div>-->
+
+
+
+<!--    <gb-card variant="dark" class="p-8">-->
+<!--      <h3 gbText="h3" class="mb-6 text-white text-center">Get Instant Access</h3>-->
+<!--      <form>-->
+<!--        <gb-form-field forId="name">-->
+<!--          <span label>Your Adventurer Name</span>-->
+<!--          <input gbInput id="name" type="text" placeholder="Eldrin the Wise">-->
+<!--        </gb-form-field>-->
+
+<!--        <gb-form-field forId="email">-->
+<!--          <span label>Email Address</span>-->
+<!--          <input gbInput id="email" type="email" placeholder="eldrin@citadel.com">-->
+<!--        </gb-form-field>-->
+
+<!--        <button gbBtnSeal class="w-full">Join the System</button>-->
+<!--      </form>-->
+<!--    </gb-card>-->
+<!--  </div>-->
+<!--</gb-section>-->
+
+<!--<gb-section variant="dark">-->
+<!--  <div class="flex flex-col md:flex-row gap-12 items-center">-->
+<!--    <div class="w-48 h-48 rounded-full border-4 border-brand-primary/30 overflow-hidden shrink-0">-->
+<!--      <img src="images/tony.webp" alt="Tony - The Grainbound Creator" class="w-full h-full object-cover">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <h2 gbText="h2">The Mission</h2>-->
+<!--      <p gbText="body" class="mb-4 italic opacity-80">"Causality over invention, systems over checklists."</p>-->
+<!--      <p gbText="body">I created GRAINBOUND to elevate worldbuilding as a professional craft. Whether you're a novelist, GM, or game designer, our tools are designed to help you build worlds that feel like they existed long before the first page was turned.</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</gb-section>-->
+
+<!--<footer class="bg-surface-dark py-16 px-(&#45;&#45;gutter-mobile) border-t border-white/5 text-center">-->
+<!--  <h2 gbText="h1" class="mb-8">Never Miss a <br><span gbAccent>Breakthrough</span></h2>-->
+<!--  <div class="flex flex-wrap justify-center gap-6">-->
+<!--    <a href="#" gbText="nav" class="hover:text-brand-primary transition-colors">YouTube</a>-->
+<!--    <a href="#" gbText="nav" class="hover:text-brand-primary transition-colors">Discord</a>-->
+<!--    <a href="#" gbText="nav" class="hover:text-brand-primary transition-colors">Instagram</a>-->
+<!--  </div>-->
+<!--</footer>-->
+
+
+<div class="min-h-screen bg-white p-4 md:p-12 font-sketch">
+
+  <main class="max-w-8/12 mx-auto bg-[#F5E6D3] text-[#3D2B1F] shadow-[0_0_80px_rgba(0,0,0,0.5)] border-t-8 border-gb-accent rounded-t-[20px] overflow-hidden">
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+
+      <div class="relative h-[400px] lg:h-[700px] bg-gb-sand/30 border-r-2 border-gb-accent/10">
+        <img
+          src="images/arctic_bob_no_bg.png"
+          alt="The Grainbound Explorer"
+          class="absolute inset-0 w-full h-full object-contain p-8 drop-shadow-xl"
+        />
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/p6.png')] opacity-10 pointer-events-none"></div>
+      </div>
+
+      <div class="flex flex-col justify-center p-8 md:p-16 lg:p-20">
+
+        <header class="mb-8">
+          <span class="text-gb-accent/60 uppercase tracking-[0.3em] text-sm font-bold block mb-2">Welcome to the Grainbound</span>
+          <h1 class="text-5xl md:text-6xl font-hand uppercase leading-tight border-b-4 border-gb-accent pb-4 inline-block">
+            Build Worlds <br> That Breathe.
+          </h1>
+        </header>
+
+        <p class="font-body text-2xl leading-relaxed text-justify mb-10 opacity-90 first-letter:text-5xl first-letter:font-hand first-letter:mr-2">
+          Digital tools, map templates, and actionable methods for Game Masters, writers, Game Developers, and those who do worldbuilding just for fun.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6 items-start">
+          <button class="bg-[#3D2B1F] text-[#F5E6D3] px-10 py-4 rounded-xl border-b-4 border-[#1A1512] active:translate-y-1 active:border-b-0 transition-all font-hand text-2xl tracking-wide hover:brightness-110">
+            EXPLORE THE SHOP
+          </button>
+
+          <a href="#" class="group flex flex-col pt-2">
+            <span class="text-xl font-hand group-hover:text-gb-accent transition-colors">Watch the Latest Expedition</span>
+            <span class="h-1 w-0 bg-gb-accent transition-all group-hover:w-full"></span>
+          </a>
+        </div>
+
+        <div class="mt-16 pt-8 border-t-2 border-gb-accent/10 opacity-40 italic font-body">
+          <p>Systematizing the art of worldbuilding. Build better worlds, human-first.</p>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<!--<section class="max-w-7xl mx-auto border-4 border-gb-accent rounded-organic shadow-restful font-sketch relative overflow-hidden p-6 md:p-12 mb-16 bg-gradient-hero">-->
+
+<!--  <img src="images/arctic_bob.png" alt="Detailed desert background" class="absolute inset-0 z-0 h-full w-full object-cover opacity-100" />-->
+
+<!--  <div class="absolute top-10 right-20 z-0 h-20 w-20 bg-gb-sun rounded-full blur-[1px]"></div>-->
+
+<!--  <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">-->
+
+<!--    <div class="relative flex justify-center items-center">-->
+<!--&lt;!&ndash;      <img src="assets/main-explorer.png" alt="The Grain Bound Explorer" class="h-[400px] w-auto drop-shadow-lg" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;      <img src="assets/compass-overlay.svg" alt="Compass rose" class="absolute bottom-[-10px] right-0 h-40 opacity-90" />&ndash;&gt;-->
+<!--&lt;!&ndash;      <img src="assets/caravan-overlay.svg" alt="Distant desert caravan" class="absolute left-[-20px] top-[150px] h-20 opacity-90" />&ndash;&gt;-->
+<!--    </div>-->
+
+<!--    <div class="relative z-10 max-w-xl">-->
+<!--      <div class="bg-vellum backdrop-blur-sm p-8 border-2 border-gb-accent shadow-sketch rounded-[20px]">-->
+
+<!--        <h1 class="font-sketch text-2xl md:text-3xl border-b-4 border-gb-accent inline-block uppercase tracking-tight mb-4">-->
+<!--          Build Worlds That Breathe.-->
+<!--        </h1>-->
+
+<!--        <p class="font-body text-xl leading-relaxed text-ink-dark mb-8 text-justify max-w-prose">-->
+<!--          Digital tools, map templates, and actionable methods for Game Masters, writers, Game Developers and those who do worldbuilding just for fun.-->
+<!--        </p>-->
+
+<!--        <div class="flex flex-wrap gap-6 items-center">-->
+<!--          <button class="btn-base bg-gb-accent text-white px-8 py-3 rounded-xl border-b-4 border-[#2D2018] active:translate-y-1 active:border-b-0 transition-all">-->
+<!--            EXPLORE THE SHOP-->
+<!--          </button>-->
+<!--          <a href="#" class="font-sketch text-lg border-b-2 border-transparent hover:border-gb-accent transition-all">-->
+<!--            Watch the Latest Expedition-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->

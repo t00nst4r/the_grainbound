@@ -1,38 +1,63 @@
-<header class="sticky top-0 z-50 w-full h-(--header-height) bg-surface-dark/90 backdrop-blur-md border-b border-white/10 shadow-lg">
-  <nav class="container mx-auto h-full px-(--gutter-mobile) md:px-(--gutter-desktop) flex items-center justify-between">
-    <a routerLink="/" class="flex items-center gap-4 group">
-      <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-ink-muted/20 group-hover:border-brand-primary transition-colors">
-        <img src="images/tony.webp" alt="Logo" class="object-cover w-full h-full">
-      </div>
-      <span class="font-display text-xl tracking-tighter text-(--color-ink-light) uppercase">
-            The <span class="text-brand-primary">Grainbound</span>
-      </span>
-    </a>
+<div class="w-full bg-[#2D241E] border-b-2 border-white/5 font-sketch text-[#F5E6D3] sticky top-0 z-[100]">
 
-    <div class="hidden md:flex items-center gap-8">
-      <a routerLink="/about" class="nav-link" routerLinkActive="active">About</a>
-      <a routerLink="/resources" class="nav-link" routerLinkActive="active">Resources</a>
-      <a routerLink="/signup" gbBtnSeal size="sm">
-        Join the System
-      </a>
-    </div>
+  <header class="max-w-6xl mx-auto px-6 py-4 md:py-12 flex flex-col items-center">
 
-    <button (click)="toggleMenu()" class="md:hidden text-(--color-ink-light) p-2">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="w-full flex items-center justify-between md:justify-center relative">
+
+      <h1 class="text-3xl md:text-6xl font-bold tracking-widest uppercase md:border-b-4 border-gb-sun/40 md:mb-8 md:pb-2 md:px-8 transition-transform hover:scale-105 duration-500 cursor-pointer"
+          routerLink="/">
+        The Grainbound
+      </h1>
+
+      <button
+        (click)="isMenuOpen.set(!isMenuOpen())"
+        class="md:hidden p-2 text-gb-sun focus:outline-none"
+        aria-label="Toggle Menu">
         @if (!isMenuOpen()) {
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
         } @else {
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         }
-      </svg>
-    </button>
-  </nav>
-
-  @if (isMenuOpen()) {
-    <div class="absolute top-(--header-height) left-0 w-full bg-surface-dark
-                    border-b border-ink-muted/20 p-6 space-y-4 md:hidden animate-in fade-in slide-in-from-top-4">
-      <a routerLink="/about" (click)="isMenuOpen.set(false)" class="block text-xl font-hand text-(--color-ink-light)">About</a>
-      <a routerLink="/resources" (click)="isMenuOpen.set(false)" class="block text-xl font-hand text-(--color-ink-light)">Resources</a>
+      </button>
     </div>
-  }
-</header>
+
+    <nav
+      [class.hidden]="!isMenuOpen()"
+      [class.flex]="isMenuOpen()"
+      class="md:flex flex-col md:flex-row items-center w-full md:w-auto mt-6 md:mt-0 space-y-6 md:space-y-0 md:space-x-10 text-xl font-medium transition-all duration-300">
+
+      <a routerLink="/about" (click)="isMenuOpen.set(false)"
+         routerLinkActive="text-gb-sun underline"
+         class="hover:text-white hover:underline decoration-gb-sun transition-colors">
+        About
+      </a>
+
+      <a href="#" (click)="isMenuOpen.set(false)"
+         class="hover:text-white hover:underline decoration-gb-sun transition-colors">
+        Story
+      </a>
+
+      <a routerLink="/products" (click)="isMenuOpen.set(false)"
+         routerLinkActive="text-gb-sun underline"
+         class="hover:text-white hover:underline decoration-gb-sun transition-colors">
+        Products
+      </a>
+
+      <a routerLink="/freebies" (click)="isMenuOpen.set(false)"
+         routerLinkActive="text-gb-sun underline"
+         class="hover:text-white hover:underline decoration-gb-sun transition-colors">
+        Freebies
+      </a>
+
+      <a href="#" (click)="isMenuOpen.set(false)"
+         class="hover:text-white hover:underline decoration-gb-sun transition-colors">
+        Contact
+      </a>
+    </nav>
+
+  </header>
+</div>

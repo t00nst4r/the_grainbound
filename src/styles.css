@@ -1,10 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 @import "tailwindcss";
-
 @theme {
   /* Fonts */
   --font-display: "Cinzel", serif;
   --font-hand: "Almendra", serif;
   --font-body: "EB Garamond", serif;
+  --font-sketch: "Patrick Hand", cursive;
+
+  --color-gb-bg: #F5E6D3;
+  --color-gb-studio: #2D241E; /* Dark Charcoal */
+  --color-gb-sand: #EEDCC5;   /* Mid-tone Sand */
+
+  --color-gb-red: #8B2622;
+
+  --color-gb-moss: #3A4D39;
+  --color-gb-ink: #2C3E50;
+
+  --color-vellum: rgba(245, 230, 211, 0.85); /* Matches your bg but 85% opaque */
+  --shadow-sketch: 4px 4px 0px 0px rgba(61, 43, 31, 0.2);
 
   /* Colors - Functional Naming */
   --color-brand-primary: #a81a1a;
@@ -23,6 +36,9 @@
   --color-status-success: #2d5a27; /* Forest Green */
   --color-status-warning: #b35d1e; /* Ochre/Rust */
   --color-status-info: #1e4b6d;    /* Deep Sea Blue */
+
+
+
 
   --text-base: 1rem;
   --text-lg: 1.25rem;
@@ -95,6 +111,18 @@
 }
 
 @layer components {
+  .header-transition {
+    /* Smoothly animate font size and padding changes */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* When the header is "stuck", it needs a background to cover content underneath */
+  .is-sticky {
+    @apply fixed top-0 left-0 w-full z-50 backdrop-blur-md shadow-md py-2 px-6;
+  }
+}
+
+@layer components {
   /* Define the "Atom" as a plain CSS class */
   .btn-base {
     display: inline-flex;
@@ -132,11 +160,15 @@
 
 
 
-  /* The "Molecule" definition */
   .gb-card {
-    @apply p-6 md:p-8 rounded-sm transition-all duration-300;
+    /* Change from p-6 md:p-8 to asymmetrical padding */
+    @apply px-6 py-4 md:px-8 md:py-5 rounded-sm transition-all duration-300;
     border: 1px solid var(--border-muted);
-    display: block; /* Ensure it behaves like a container */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-left: 12px solid var(--color-brand-primary);
+    background-clip: padding-box;
   }
 
   /* Variant: Glass (Light mode) */
@@ -156,13 +188,24 @@
   .gb-card-dark {
     background-color: var(--color-surface-dark);
     color: var(--color-ink-light);
-    border-color: rgba(255, 255, 255, 0.1);
+    /* Optional: You can change the border color for the dark variant if you want it different */
+    border-left-color: var(--color-brand-primary);
+    border-top-color: rgba(255, 255, 255, 0.1);
+    border-right-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
   }
 
-  /* Hover Lift - Applied globally to cards */
-  .gb-card:hover {
-    border-color: var(--color-brand-primary);
+  /* Hover Lift */
+  .gb-card-hover:hover {
+    /* We keep the left border thick but maybe brighten the color or increase shadow */
+    border-left-color: var(--color-brand-primary-hover);
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
   }
 }
+
+.parchment { @apply bg-gb-bg text-ink-dark; }
+.studio { @apply bg-gb-studio text-[#F5E6D3]; }
+.sand { @apply bg-gb-sand text-ink-dark; }
+.moss { @apply bg-gb-moss text-[#F5E6D3] }
+.ink { @apply bg-gb-ink text-[#F5E6D3]}

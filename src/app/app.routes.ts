@@ -1,15 +1,30 @@
 import { Routes } from '@angular/router';
-import {Test} from './pages/test/test';
-import {Signup} from './pages/signup/signup';
+import {Landing} from './pages/landing/landing';
+import {ProductsOverview} from './pages/products-overview/products-overview';
+import {About} from './pages/about/about';
+import {ProductDetail} from './pages/product-detail/product-detail';
+import {Freebies} from './pages/freebies/freebies';
 
 
 export const routes: Routes = [
   {
     path: '',
-    component: Test
+    component: Landing
   },
   {
-    path: 'signup',
-    component: Signup
+    path: 'freebies',
+    component: Freebies
+  },
+  {
+    path: 'products',
+    component: ProductsOverview
+  },
+  {
+    path: 'products/:id',
+    component: ProductDetail
+  },
+  {
+    path: 'about',
+    component: About
   }
 ];
