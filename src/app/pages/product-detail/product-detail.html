@@ -1,0 +1,105 @@
+<div class="min-h-screen font-sketch">
+
+  @if (product(); as p) {
+<!--    <main class="max-w-6xl mx-auto bg-[#F5E6D3] text-[#3D2B1F] border-4 shadow-sketch rounded-t-[20px] overflow-hidden">-->
+
+<!--      <section class="grid grid-cols-1 lg:grid-cols-2 border-b-2 border-gb-accent/10">-->
+
+<!--        <div class="bg-gb-sand/20 p-8 flex items-center justify-center border-r-2 border-gb-accent/10 relative">-->
+<!--          <img [src]="p.imageUrl" [alt]="p.name" class="max-h-[500px] object-contain drop-shadow-md transition-transform hover:scale-105 duration-700" />-->
+
+<!--          <span class="absolute top-6 left-6 font-hand text-sm opacity-40 border border-gb-accent/20 px-2 py-1 rounded">-->
+<!--            Ref No: {{ p.id }}-->
+<!--          </span>-->
+<!--        </div>-->
+
+<!--        <div class="p-8 md:p-16 flex flex-col justify-center">-->
+<!--          <nav class="mb-6 text-sm uppercase tracking-widest opacity-50">-->
+<!--            <a routerLink="/products" class="hover:text-gb-accent underline">The Ledger</a> / {{ p.name }}-->
+<!--          </nav>-->
+
+<!--          <h1 class="text-4xl md:text-5xl font-hand uppercase mb-4 leading-tight">-->
+<!--            {{ p.name }}-->
+<!--          </h1>-->
+
+<!--          <div class="flex items-center gap-4 mb-8">-->
+<!--            <span class="text-3xl font-bold font-hand text-gb-accent">-->
+<!--              {{ p.price === 0 ? 'FREE' : '$' + p.price }}-->
+<!--            </span>-->
+<!--            <span class="h-6 w-[2px] bg-gb-accent/20"></span>-->
+<!--&lt;!&ndash;            <span class="text-sm font-body opacity-60 italic">Last Updated: {{ p.lastUpdated }}</span>&ndash;&gt;-->
+<!--          </div>-->
+
+<!--          <p class="font-body text-xl leading-relaxed mb-10">-->
+<!--            {{ p.description }}-->
+<!--          </p>-->
+
+<!--          <div class="flex flex-col gap-4">-->
+<!--            <div class="flex items-center gap-3 opacity-70 justify-center">-->
+<!--              <span class="text-xs font-bold uppercase tracking-widest">Formats:</span>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </section>-->
+
+<!--      <section class="p-8 md:p-20 bg-white/10">-->
+<!--        <div class="max-w-3xl">-->
+<!--          <h2 class="font-hand text-3xl uppercase mb-8 border-b-2 border-gb-accent/20 pb-2">What's Inside?</h2>-->
+
+<!--          <div class="mt-20 p-8 border-4 border-dashed border-gb-accent/20 rounded-2xl bg-gb-sand/10 relative">-->
+<!--            <span class="absolute -top-5 left-10 bg-[#F5E6D3] px-4 font-hand text-xl italic text-gb-accent">Chronicler's Note</span>-->
+<!--            <p class="font-body italic text-lg opacity-80">-->
+<!--              "I built this because my brain couldn't hold the threads of a 10-year campaign anymore..."-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </section>-->
+<!--    </main>-->
+    <gb-section [isProse]="true" theme="moss">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <img [src]="p.imageUrl" class="drop-shadow-2xl rotate-[-2deg]">
+        <div>
+          <h1 class="text-6xl font-hand uppercase">{{ p.name }}</h1>
+          <p class="text-xl mt-4">{{ p.description }}</p>
+        </div>
+      </div>
+    </gb-section>
+
+    <gb-section [isProse]="true" theme="studio">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-4xl font-hand mb-6">Designed for Worldbuilders with ADD</h2>
+        <p class="text-lg opacity-80 leading-loose">
+          Systems are a second brain. We remove the cognitive load of
+          remembering political alliances so you can focus on the session.
+        </p>
+      </div>
+    </gb-section>
+
+    <gb-section [isProse]="false" theme="sand">
+      <div class="max-w-3xl">
+        <h2 class="text-4xl font-hand mb-6">Designed for Worldbuilders with ADD</h2>
+        <p class="text-lg opacity-80 leading-loose">
+          Systems are a second brain. We remove the cognitive load of
+          remembering political alliances so you can focus on the session.
+        </p>
+      </div>
+    </gb-section>
+
+    <gb-section [isProse]="false" theme="ink">
+      <h2 class="text-3xl font-hand mb-12 text-center uppercase">What's Inside</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        Blabla
+      </div>
+    </gb-section>
+  } @else {
+    <div class="max-w-6xl mx-auto h-[600px] flex flex-col items-center justify-center text-[#F5E6D3]/30 animate-pulse">
+      <span class="font-hand text-4xl uppercase tracking-widest mb-4">Consulting the Ledger...</span>
+      <div class="w-12 h-12 border-4 border-gb-sun border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  }
+
+  <footer class="max-w-6xl mx-auto mt-12 flex justify-between font-hand text-xl text-[#F5E6D3]/60 px-4">
+    <a routerLink="/products" class="hover:text-gb-sun transition-colors">← Back to the Ledger</a>
+    <span class="opacity-30">The Grainbound Methodology</span>
+  </footer>
+</div>

@@ -1,0 +1,122 @@
+<gb-section theme="parchment" [isProse]="true">
+  <div class="text-center">
+    <h1 class="text-5xl md:text-7xl font-hand uppercase text-gb-accent mb-6">The Vault</h1>
+    <p class="text-2xl font-body leading-relaxed text-ink-dark/80">
+      I don't believe in "gatekeeping" the basics. I've spent a decade failing at worldbuilding so you don't have to.
+      Inside this archive, you’ll find the exact worksheets I use to keep my own ADD brain from spinning out of control.
+    </p>
+  </div>
+</gb-section>
+
+<gb-section theme="studio">
+  <div class="max-w-2xl mx-auto">
+    <div class="bg-white/5 border-2 border-white/10 p-10 md:p-16 rounded-[40px_10px_60px_20px] backdrop-blur-sm shadow-2xl min-h-[500px] flex flex-col justify-center">
+
+      @switch (status()) {
+
+        @case ('SUCCESS') {
+          <div class="text-center animate-in fade-in zoom-in duration-500">
+            <div class="text-6xl mb-6 select-none">✉️</div>
+            <h2 class="text-4xl font-hand text-gb-sun mb-4 uppercase tracking-wider">Messenger Dispatched!</h2>
+            <p class="font-body text-lg opacity-80 leading-relaxed max-w-sm mx-auto">
+              Check your inbox, Chronicler. Your unique access key is flying toward your coordinates right now.
+            </p>
+            <button (click)="status.set('IDLE')"
+                    class="mt-8 text-gb-sun underline font-sketch uppercase tracking-widest text-sm hover:text-white transition-colors">
+              Send to another address?
+            </button>
+          </div>
+        }
+
+        @default {
+          <div class="text-center mb-10">
+            <h2 class="text-4xl font-hand text-gb-sun mb-4 uppercase">Secure Your Access Key</h2>
+            <p class="font-body text-lg opacity-80 leading-relaxed">
+              Join the <span class="text-gb-sun font-bold">Grainbound Expedition</span>.
+              I'll send you a unique access key to the archive immediately.
+            </p>
+          </div>
+
+          <form [formGroup]="subscribeForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-6">
+
+            <div class="flex flex-col gap-2">
+              <label class="font-sketch text-sm uppercase tracking-widest opacity-50 ml-2">Your Name</label>
+              <input
+                formControlName="name"
+                type="text"
+                placeholder="Bob"
+                [ngClass]="{ 'border-gb-red/50': subscribeForm.get('email')?.invalid && subscribeForm.get('email')?.touched }"
+                class="bg-gb-studio border-2 border-white/20 p-4 rounded-xl text-white focus:border-gb-sun outline-none transition-all placeholder:opacity-30">
+
+              @if (subscribeForm.get('name')?.invalid && subscribeForm.get('name')?.touched) {
+                <span class="text-gb-red text-l font-body ml-2 italic">That doesn't look like a valid name...</span>
+              }
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label class="font-sketch text-sm uppercase tracking-widest opacity-50 ml-2">Email Address</label>
+              <input
+                formControlName="email"
+                type="email"
+                placeholder="bob@grainbound.com"
+                [ngClass]="{ 'border-gb-red/50': subscribeForm.get('email')?.invalid && subscribeForm.get('email')?.touched }"
+                class="bg-gb-studio border-2 border-white/20 p-4 rounded-xl text-white focus:border-gb-sun outline-none transition-all placeholder:opacity-30">
+
+              @if (subscribeForm.get('email')?.invalid && subscribeForm.get('email')?.touched) {
+                <span class="text-gb-red text-l font-body ml-2 italic">That doesn't look like a valid e-mail address...</span>
+              }
+            </div>
+
+            <button type="submit"
+                    [disabled]="status() === 'LOADING'"
+                    class="relative bg-gb-red text-[#F5E6D3] py-5 rounded-xl border-b-8 border-gb-red-dark font-hand text-3xl tracking-wide transition-all active:translate-y-1 hover:brightness-110 disabled:opacity-50">
+
+              @if (status() === 'LOADING') {
+                <span class="flex items-center justify-center gap-3">
+                  <svg class="animate-spin h-6 w-6 text-white" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  CONSULTING LEDGER...
+                </span>
+              } @else {
+                SEND MY ACCESS KEY
+              }
+            </button>
+
+            @if (status() === 'ERROR') {
+              <p class="text-gb-red text-center font-body italic mt-2">{{ errorMessage() }}</p>
+            }
+          </form>
+
+          <div class="mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="font-body text-sm opacity-50 italic">
+              No spam. No awkward exit interviews. Unsubscribe any time.
+            </p>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</gb-section>
+
+<gb-section theme="moss" [isProse]="true">
+  <div class="text-center mb-12">
+    <h3 class="text-3xl font-hand uppercase text-gb-accent">Expected Findings in the Archive:</h3>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="border-l-4 border-gb-accent pl-6 py-2">
+      <h4 class="font-hand text-xl uppercase mb-2">01. The Faction Motivator</h4>
+      <p class="text-sm opacity-75">Define exactly what your political factions want and what they'll do to get it.</p>
+    </div>
+    <div class="border-l-4 border-gb-accent pl-6 py-2">
+      <h4 class="font-hand text-xl uppercase mb-2">02. The Atmosphere Checklist</h4>
+      <p class="text-sm opacity-75">Quickly populate your town squares with sights, sounds, and smells.</p>
+    </div>
+    <div class="border-l-4 border-gb-accent pl-6 py-2">
+      <h4 class="font-hand text-xl uppercase mb-2">03. The Lore-Gap Finder</h4>
+      <p class="text-sm opacity-75">A diagnostic tool to see where your worldbuilding is "thin" and needs weight.</p>
+    </div>
+  </div>
+</gb-section>
