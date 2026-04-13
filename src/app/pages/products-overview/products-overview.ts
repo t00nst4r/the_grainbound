@@ -1,13 +1,13 @@
 import {Component, inject} from '@angular/core';
 import {ProductService} from '../../services/product.service';
 import {AsyncPipe} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import {Section} from '../../components/section/section';
 
 @Component({
   selector: 'gb-products-overview',
   imports: [
     AsyncPipe,
-    RouterLink
+    Section
   ],
   templateUrl: './products-overview.html',
   styleUrl: './products-overview.css',

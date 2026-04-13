@@ -10,9 +10,7 @@
   --color-gb-bg: #F5E6D3;
   --color-gb-studio: #2D241E; /* Dark Charcoal */
   --color-gb-sand: #EEDCC5;   /* Mid-tone Sand */
-
   --color-gb-red: #8B2622;
-
   --color-gb-moss: #3A4D39;
   --color-gb-ink: #2C3E50;
 
@@ -205,7 +203,7 @@
 }
 
 .parchment { @apply bg-gb-bg text-ink-dark; }
-.studio { @apply bg-gb-studio text-[#F5E6D3]; }
+.studio { @apply bg-gb-studio text-gb-bg; }
 .sand { @apply bg-gb-sand text-ink-dark; }
-.moss { @apply bg-gb-moss text-[#F5E6D3] }
-.ink { @apply bg-gb-ink text-[#F5E6D3]}
+.moss { @apply bg-gb-moss text-gb-bg; }
+.ink { @apply bg-gb-ink text-gb-bg;}

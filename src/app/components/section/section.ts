@@ -1,6 +1,4 @@
 import {Component, input} from '@angular/core';
-import {NgClass} from '@angular/common';
-
 @Component({
   selector: 'gb-section',
   standalone: true,
@@ -13,7 +11,7 @@ import {NgClass} from '@angular/common';
   `
 })
 export class Section {
-  theme = input<'parchment' | 'studio' | 'sand'| 'moss' | 'ink'>('parchment');
+  theme = input<'parchment' | 'studio' | 'sand'| 'moss' | 'ink' | 'white'>('parchment');
   // Use this to trigger the 8/12 narrow layout
   isProse = input<boolean>(false);
 

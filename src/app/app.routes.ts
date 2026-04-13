@@ -4,6 +4,7 @@ import {ProductsOverview} from './pages/products-overview/products-overview';
 import {About} from './pages/about/about';
 import {ProductDetail} from './pages/product-detail/product-detail';
 import {Freebies} from './pages/freebies/freebies';
+import {Archive} from './pages/archive/archive';
 
 
 export const routes: Routes = [
@@ -26,5 +27,10 @@ export const routes: Routes = [
   {
     path: 'about',
     component: About
+  },
+  {
+    path: 'archive',
+    component: Archive
   }
+
 ];

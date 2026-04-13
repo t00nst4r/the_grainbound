@@ -2,6 +2,8 @@ import {Component, inject, signal} from '@angular/core';
 import {Section} from '../../components/section/section';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {FreebiesService} from '../../services/freebies.service';
+import {lastValueFrom} from 'rxjs';
 // Define our submission states
 type FormStatus = 'IDLE' | 'LOADING' | 'SUCCESS' | 'ERROR';
 @Component({
@@ -16,6 +18,7 @@ type FormStatus = 'IDLE' | 'LOADING' | 'SUCCESS' | 'ERROR';
 })
 export class Freebies {
   private fb = inject(FormBuilder);
+  private freebiesService = inject(FreebiesService);
 
   // State management using Signals
   status = signal<FormStatus>('IDLE');
@@ -33,41 +36,20 @@ export class Freebies {
     }
 
     this.status.set('LOADING');
+
+    this.status.set('LOADING');
     this.errorMessage.set(null);
 
     const email = this.subscribeForm.value.email;
+    const name = this.subscribeForm.value.name;
 
     try {
-      // MOCK BACKEND CALL
-      // In a real app, this would be: this.http.post('/api/subscribe', { email })
-      await this.simulateBackendCall(email!);
-
+      // The component only cares that it WORKED, not HOW the HTTP worked
+      await lastValueFrom(this.freebiesService.subscribeToFreebies(email!, name!));
       this.status.set('SUCCESS');
-      this.subscribeForm.reset();
-    } catch (err) {
+    } catch (err: any) {
       this.status.set('ERROR');
-      this.errorMessage.set('The Archive is currently blocked. Please try again later.');
+      this.errorMessage.set(err.message);
     }
-  }
-
-  /**
-   * Simulates the logic of adding to a JSON "database"
-   * and triggering an email with a unique key.
-   */
-  private simulateBackendCall(email: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        console.log(`LOGIC: Adding ${email} to ledger.json`);
-
-        // Generate a simple pseudo-UUID as the Access Key
-        const accessKey = Math.random().toString(36).substring(2, 15);
-        console.log(`LOGIC: Key Generated: ${accessKey}`);
-
-        // Simulating the "Email Sent" trigger
-        console.log(`MAILER: Sending key ${accessKey} to ${email}`);
-
-        resolve();
-      }, 1500);
-    });
   }
 }

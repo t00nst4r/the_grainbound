@@ -1,41 +1,38 @@
-<div class="min-h-screen  p-6 md:p-12 font-sketch">
-  <div class="max-w-7xl mx-auto bg-gb-bg p-12 border-4 border-gb-accent rounded-organic shadow-sketch">
-    <div class="mb-12 border-b-4 border-gb-accent pb-6">
-      <h2 class="text-display-md font-hand uppercase tracking-tight">The Merchant's Ledger</h2>
-      <p class="font-body text-xl opacity-80">Artifacts and guides to aid your journey through the Grainbound.</p>
+<gb-section theme="white" class="block min-h-screen py-16 px-6 md:px-12">
+  <header class="pb-20">
+    <div class="max-w-7xl mx-auto text-center">
+      <span class="text-[14px] font-sketch uppercase tracking-[0.4em] text-gb-accent/40 mb-4 block">
+        The Merchant's Ledger
+      </span>
+
+      <h1 class="font-sketch text-6xl md:text-8xl uppercase text-gb-accent tracking-tighter mb-6">
+        ARTIFACTS & GUIDES
+      </h1>
     </div>
+  </header>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-
-      @for (product of products$ | async; track product.id) {
-        <article class="group bg-white backdrop-blur-sm border-2 border-gb-accent rounded-[30px_15px_40px_20px] overflow-hidden flex flex-col shadow-sketch hover:border-amber-600">
-
-          <div class="aspect-video w-full bg-gb-sand overflow-hidden border-b-2 border-gb-accent relative">
-            <img [src]="product.imageUrl" [alt]="product.name" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            <span class="absolute top-4 right-4 bg-white font-hand text-xl px-4 py-1 rounded-full border-2 border-gb-accent -rotate-3 shadow-sm">
-              ${{ product.price }}
-            </span>
-          </div>
-
-          <div class="p-6 flex flex-col grow">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-2xl font-bold font-hand uppercase tracking-wide">{{ product.name }}</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 grow">
+    @for (product of products$ | async; track product.id) {
+      <div class="group bg-gb-sand border border-gb-accent/20 flex flex-col overflow-hidden">
+        <div class="relative aspect-video bg-black border-b border-gb-accent/20">
+            <div class="relative w-full h-full cursor-pointer overflow-hidden">
+              <img
+                [src]="product.imageUrl"
+                class="object-cover w-full h-full group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+              />
             </div>
+        </div>
 
-            <p class="font-body text-lg leading-relaxed text-justify mb-6 grow line-clamp-3">
-              {{ product.description }}
-            </p>
+        <div class="p-8 flex flex-col grow">
+          <h3 class="font-sketch text-3xl uppercase mb-3 text-gb-accent">{{ product.name }}</h3>
+          <p class="text-lg opacity-70 mb-8 grow">{{ product.description }}</p>
 
-            <div class="mt-auto pt-4 flex items-center justify-between border-t-2 border-gb-accent/20">
-  <!--            <span class="text-sm font-bold uppercase tracking-widest opacity-60">{{ product.category }}</span>-->
+          <a [href]="'products/' + product.id" class="bg-gb-red text-gb-bg text-center py-4 font-sketch text-xl uppercase hover:brightness-110">
+            Details
+          </a>
+        </div>
 
-              <a [routerLink]="product.id" target="" class="bg-amber-950 text-white px-6 py-2 rounded-xl border-b-4 border-[#2D2018] active:translate-y-1 transition-all font-hand text-lg">
-                View Details
-              </a>
-            </div>
-          </div>
-        </article>
-      }
-    </div>
+      </div>
+    }
   </div>
-</div>
+</gb-section>
