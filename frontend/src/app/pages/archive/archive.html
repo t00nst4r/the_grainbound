@@ -1,0 +1,52 @@
+<gb-section theme="white">
+  <header class="pb-16">
+    <div class="max-w-7xl mx-auto text-center">
+      <span class="text-[14px] font-sketch uppercase tracking-[0.4em] text-gb-accent/40 mb-4 block">
+        The Freebies
+      </span>
+
+      <h1 class="font-sketch text-6xl md:text-7xl uppercase text-gb-accent tracking-tighter mb-6">
+        THE GRAINBOUND - WORKSHEETS
+      </h1>
+    </div>
+  </header>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 grow">
+    @for (item of freebies(); track item.title) {
+      <div class="group bg-gb-sand border border-gb-accent/20 flex flex-col overflow-hidden">
+        <div class="relative aspect-video bg-black border-b border-gb-accent/20">
+          @if (playingVideoId() === item.videoId) {
+            <iframe
+              [src]="getSafeUrl(item.videoId!)"
+              class="w-full h-full"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          } @else {
+            <div class="relative w-full h-full cursor-pointer overflow-hidden"
+                 (click)="playInPlace(item.videoId!)">
+              <img
+                [src]="'https://img.youtube.com/vi/' + item.videoId + '/maxresdefault.jpg'"
+                class="object-cover w-full h-full grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+              />
+              <div class="absolute inset-0 flex items-center justify-center bg-gb-studio/20 group-hover:bg-transparent transition-all">
+                <div class="w-14 h-14 rounded-full bg-gb-red text-gb-bg flex items-center justify-center shadow-xl">
+                  <span class="text-xl ml-1">▶</span>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="p-8 flex flex-col grow">
+          <h3 class="font-sketch text-3xl uppercase mb-3 text-gb-accent">{{ item.title }}</h3>
+          <p class="text-lg opacity-70 mb-8 grow">{{ item.description }}</p>
+
+          <a [href]="item.fileUrl" download class="bg-gb-red text-gb-bg text-center py-4 font-sketch text-xl uppercase hover:brightness-110">
+            Download PDF
+          </a>
+        </div>
+
+      </div>
+    }
+  </div>
+</gb-section>

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "gb-001",
+    "name": "The Four-Layer Political Framework",
+    "description": "Create deep and believable political characters.",
+    "price": 0,
+    "software": ["PDF"],
+    "blocks": ["A worksheet system to create deep and believable political characters."],
+    "downloadUrl": "/downloads/political-character-worksheet.pdf",
+    "lastUpdated": "2026-20-02",
+    "imageUrl": "images/arctic_bob.png"
+  },
+  {
+    "id": "gb-002",
+    "name": "The Culture Builder Framework",
+    "description": "Create deep and believable cultures.",
+    "price": 500,
+    "software": ["PDF"],
+    "blocks": ["A worksheet to run the Culture Builder Framework."],
+    "downloadUrl": "/downloads/culture-builder-worksheet.pdf",
+    "lastUpdated": "2026-20-02",
+    "imageUrl": "images/culture_builder.jpg"
+  }
+]
